@@ -9,3 +9,7 @@ global using FluentValidation;
 global using BuildingBlocks.Behaviors;
 global using Microsoft.Extensions.Logging;
 global using BuildingBlocks.Exceptions.Handler;
+global using Marten.Schema;
+global using Catalog.API.Data;
+
+
