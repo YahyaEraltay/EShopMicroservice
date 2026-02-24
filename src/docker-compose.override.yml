@@ -21,6 +21,7 @@ services:
     ports:
       - "6000:8080"
       # - "6060:8081"
+    restart: always
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
