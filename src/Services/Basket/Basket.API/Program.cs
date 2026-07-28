@@ -17,10 +17,13 @@ builder.Services.AddMarten(opts =>
 }).UseLightweightSessions();
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 app.MapCarter();
+
+app.UseExceptionHandler(options => { });
 
 app.Run();
