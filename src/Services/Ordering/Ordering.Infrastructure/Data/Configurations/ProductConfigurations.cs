@@ -4,6 +4,7 @@ using Ordering.Domain.Models;
 using Ordering.Domain.ValueObjects;
 
 namespace Ordering.Infrastructure.Data.Configurations;
+
 public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
@@ -15,5 +16,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                         dbId => ProductId.Of(dbId));
 
         builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
+
+        builder.Property(p => p.Price)
+            .HasPrecision(18, 2);
     }
 }

@@ -4,6 +4,7 @@ using Ordering.Domain.Models;
 using Ordering.Domain.ValueObjects;
 
 namespace Ordering.Infrastructure.Data.Configurations;
+
 public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
 {
     public void Configure(EntityTypeBuilder<OrderItem> builder)
@@ -20,6 +21,8 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
 
         builder.Property(oi => oi.Quantity).IsRequired();
 
-        builder.Property(oi => oi.Price).IsRequired();
+        builder.Property(oi => oi.Price)
+            .IsRequired()
+            .HasPrecision(18, 2);
     }
 }
